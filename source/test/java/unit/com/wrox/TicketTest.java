@@ -19,6 +19,6 @@ public class TicketTest {
 		Ticket instance = new Ticket();
 		instance.setCustomerName("Marco");
 		String customer = instance.getCustomerName();
-		assertEquals(customer, "Mario");
+		assertEquals(customer, "Marco");
 	}
 }
