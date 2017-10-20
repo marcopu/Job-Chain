@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wrox</groupId>
-    <artifactId>NewFileWAR</artifactId>
+    <artifactId>NewTry</artifactId>
     <version>2.0.0.SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -66,7 +66,7 @@
     </dependencies>
 
     <build>
-    	<finalName>NewFileWAR</finalName>
+    	<finalName>NewTry</finalName>
         <sourceDirectory>source/production/java</sourceDirectory>
         <resources>
             <resource>
