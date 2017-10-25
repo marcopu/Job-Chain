@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Optional URL to server. Default value is http://localhost:9000 -->
-        <sonar.host.url>http://192.168.70.40:7070/sonar</sonar.host.url>
+        <sonar.host.url>http://192.168.70.40:9000/sonar</sonar.host.url>
     </properties>
          
     <dependencies>
