@@ -10,7 +10,7 @@
         <title>Consoft</title>
     </head>
     <body>
-        <h2>Consoft Tickets</h2>
+        <h2>Consoft Tickets Rimodernato</h2>
         <a href="<c:url value="/tickets">
             <c:param name="action" value="create" />
         </c:url>">Crea il tuo Ticket</a><br /><br />
