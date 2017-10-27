@@ -26,9 +26,9 @@ import java.util.Map;
 )
 public class TicketServlet extends HttpServlet
 {
-    private volatile int TICKET_ID_SEQUENCE = 1;
-
-    private Map<Integer, Ticket> ticketDatabase = new LinkedHashMap<>();
+    //private volatile int TICKET_ID_SEQUENCE = 1;
+      private static int TICKET_ID_SEQUENCE = 1;
+    private final Map<Integer, Ticket> ticketDatabase = new LinkedHashMap<>();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
