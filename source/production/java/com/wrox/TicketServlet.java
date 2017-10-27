@@ -40,10 +40,23 @@ public class TicketServlet extends HttpServlet
         switch(action)
         {
             case "create":
+            	try {
                 this.showTicketForm(request, response);
+            	}
+            	catch (Exception e) {
+            	System.out.println(e);
+            	System.out.println("showTicketForm ERROR CREATE!");
+            	}
                 break;
+                
             case "view":
+            	try {
                 this.viewTicket(request, response);
+            	}
+            	catch (Exception e) {
+            	System.out.println(e);
+            	System.out.println("showTicketForm ERROR VIEW!");
+            	}
                 break;
             case "download":
                 this.downloadAttachment(request, response);
