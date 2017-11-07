@@ -59,11 +59,23 @@ public class TicketServlet extends HttpServlet
             	}
                 break;
             case "download":
+                try{
                 this.downloadAttachment(request, response);
+                }
+                catch (Exception e){
+                System.out.println(e);
+            	System.out.println("showTicketForm ERROR ATTACH!");
+                }
                 break;
             case "list":
             default:
+                try{
                 this.listTickets(request, response);
+                }
+                catch (Exception e){
+                System.out.println(e);
+            	System.out.println("showTicketForm ERROR LIST!");
+                }
                 break;
         }
     }
