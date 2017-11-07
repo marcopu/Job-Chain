@@ -90,11 +90,23 @@ public class TicketServlet extends HttpServlet
         switch(action)
         {
             case "create":
+                try{
                 this.createTicket(request, response);
+                }
+                catch (Exception e){
+                System.out.println(e);
+            	System.out.println("doPost ERROR CREATE!");
+                }
                 break;
             case "list":
             default:
+                try{
                 response.sendRedirect("tickets");
+                }
+                catch (Exception e){
+                System.out.println(e);
+            	System.out.println("doPost ERROR LIST!");
+                }
                 break;
         }
     }
@@ -128,6 +140,7 @@ public class TicketServlet extends HttpServlet
             throws ServletException, IOException
     {
         String idString = request.getParameter("ticketId");
+        try{
         Ticket ticket = this.getTicket(idString, response);
         if(ticket == null)
             return;
@@ -152,6 +165,11 @@ public class TicketServlet extends HttpServlet
 
         ServletOutputStream stream = response.getOutputStream();
         stream.write(attachment.getContents());
+        }
+        catch (Exception e){
+                System.out.println(e);
+            	System.out.println("downlaodAttach ERROR!");
+                }
     }
 
     private void listTickets(HttpServletRequest request,
