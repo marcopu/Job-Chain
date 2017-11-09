@@ -9,10 +9,8 @@
       stat: path=/opt/tomcat
       register: check_path
 
-
     - name: Installing Tomcat7
-      shell: wget mirror.nohup.it/apache/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz; tar xvzf apache-tomcat-7.0.82.tar.gz; mv apache-tomcat-7.0.82 /opt/tomcat; cd /root; sudo echo
- 'export JAVA_HOME=/usr/lib/jvm/java-8-oracle' >> .bashrc; echo 'export CATALINA_HOME=/opt/tomcat' >> .bashrc;
+      shell: wget mirror.nohup.it/apache/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz; tar xvzf apache-tomcat-7.0.82.tar.gz; mv apache-tomcat-7.0.82 /opt/tomcat; cd /root; sudo echo 'export JAVA_HOME=/usr/lib/jvm/java-8-oracle' >> .bashrc; echo 'export CATALINA_HOME=/opt/tomcat' >> .bashrc;
       when: check_path.stat.exists == false
 
     - name: Starting Tomcat7
