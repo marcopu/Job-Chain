@@ -66,8 +66,8 @@
         </dependency>
              
         <dependency>
-                  <groupid>org.seleniumhq.selenium.client-drivers</groupId>
-                  <artifactid>selenium-java-client-driver</artifactId>
+                  <groupId>org.seleniumhq.selenium.client-drivers</groupId>
+                  <artifactId>selenium-java-client-driver</artifactId>
                   <version>1.0.1</version>
                   <scope>test</scope>
         </dependency>
@@ -115,8 +115,8 @@
          </plugin>
                  
          <plugin>
-                 <groupid>org.codehaus.mojo</groupId>
-                 <artifactid>selenium-maven-plugin</artifactId>
+                 <groupId>org.codehaus.mojo</groupId>
+                 <artifactId>selenium-maven-plugin</artifactId>
          </plugin>
        </plugins>
     </build>
