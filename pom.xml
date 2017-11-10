@@ -64,10 +64,17 @@
       		<version>4.5</version>
       		<scope>test</scope>
         </dependency>
+             
+        <dependency>
+                  <groupid>org.seleniumhq.selenium.client-drivers</groupId>
+                  <artifactid>selenium-java-client-driver</artifactId>
+                  <version>1.0.1</version>
+                  <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
-    	<finalName>app</finalName>
+        <finalName>app</finalName>
         <sourceDirectory>source/production/java</sourceDirectory>
         <resources>
             <resource>
@@ -106,7 +113,12 @@
                  <artifactId>sonar-maven-plugin</artifactId>
                  <version>3.3.0.603</version>
          </plugin>
-        </plugins>
+                 
+         <plugin>
+                 <groupid>org.codehaus.mojo</groupId>
+                 <artifactid>selenium-maven-plugin</artifactId>
+         </plugin>
+       </plugins>
     </build>
 
 </project>
