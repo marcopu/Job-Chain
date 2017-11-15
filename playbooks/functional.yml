@@ -1,0 +1,9 @@
+---
+
+- hosts: selenium
+  remote_user: root
+  sudo: yes
+  tasks:
+
+    - name: App deployed -> Testing on Mozilla and Chrome browsers
+      shell: python /usr/local/share/suite.py  >> /usr/local/share/finalreport.html
