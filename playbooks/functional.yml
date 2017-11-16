@@ -5,5 +5,6 @@
   sudo: yes
   tasks:
 
-    - name: App deployed -> Testing on Mozilla and Chrome browsers
-      shell: mkdir /home/reports; python /home/selenium/suite.py  >> /home/reports/"report_$(date +"%Y_%m_%d_%I_%M").html"
+    - name: App deployed -> Testing on Mozilla and Chrome browsersù
+      file: path=/home state=reports
+      shell: python /home/selenium/suite.py  >> /home/reports/"report_$(date +"%Y_%m_%d_%I_%M").html"
