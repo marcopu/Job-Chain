@@ -6,4 +6,4 @@
   tasks:
 
     - name: Sonar Analysis
-      shell: mvn sonar:sonar
+      shell: cd /home; mvn sonar:sonar
