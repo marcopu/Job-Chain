@@ -6,10 +6,9 @@
   tasks:
   
     - name: Create REPORTS folder (Se non esiste)
-      stat: path=/home/reports
       register: check_path
       file: path=/home/reports state=directory
-      when: check_path.stat.exists == false
+      when: check_path.file.exists == false
 
     - name: App deployed -> Testing on Mozilla and Chrome browsers
       shell: python /home/selenium/suite.py  >> /home/reports/"report_$(date +"%Y_%m_%d_%I_%M").html"
