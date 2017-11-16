@@ -6,4 +6,4 @@
   tasks:
 
     - name: App deployed -> Testing on Mozilla and Chrome browsers
-      shell: python /usr/local/share/suite.py  >> /usr/local/share/"report_$(date +"%Y_%m_%d_%I_%M").html"
+      shell: mkdir /home/reports; python /home/selenium/suite.py  >> /home/reports/"report_$(date +"%Y_%m_%d_%I_%M").html"
