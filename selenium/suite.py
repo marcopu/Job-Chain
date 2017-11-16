@@ -53,9 +53,9 @@ class ChromeTesting(unittest.TestCase):
 
 suite = unittest.TestSuite()
 suite.addTests([
-			unittest.defaultTestLoader.loadTestsFromTestCase(MozillaTesting)
-			unittest.defaultTestLoader.loadTestsFromTestCase(ChromeTesting)
-			])
+	unittest.defaultTestLoader.loadTestsFromTestCase(MozillaTesting),
+	unittest.defaultTestLoader.loadTestsFromTestCase(ChromeTesting)
+	])
 
 runner = HTMLTestRunner.HTMLTestRunner(
             title='Functional Tests',
