@@ -14,6 +14,11 @@ pipeline{
 			 sh 'mvn compile -DskipTests'
 			 sh 'mvn package -DskipTests'
 			}
-		       }
-	              }
-                     }
+			post {
+   			 success {
+      		            archive "**"
+   			}
+		      }
+		    }
+	          }
+                }
