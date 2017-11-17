@@ -2,9 +2,10 @@ pipeline{
 	
 	agent any
 	
-	triggers {
+	/*triggers {
                 pollSCM '* * * * *'
 	}
+	*/
 	
 	stages{
 		stage("Build archive"){
@@ -12,13 +13,7 @@ pipeline{
 			 sh 'mvn clean -DskipTests'
 			 sh 'mvn compile -DskipTests'
 			 sh 'mvn package -DskipTests'
-				
-			 	postbuild{
-			  		success{
-			     		    archive '**'	
-			  		}
-				}
 			}
-		}
-	}
-}
+		       }
+	              }
+                     }
