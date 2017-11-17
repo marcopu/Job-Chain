@@ -17,8 +17,7 @@ pipeline{
 			post {
    			 success {
       		            archive "**"
-   			}
-		      }
-		    }
-	          }
-                }
+   			 }
+		        }
+	}
+}
