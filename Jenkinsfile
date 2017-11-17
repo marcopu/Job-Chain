@@ -26,5 +26,11 @@ pipeline{
 			 sh 'mvn test'
 			} 
 		}
+		
+		stage("Code Analysis"){
+			steps{
+			 sh 'mvn sonar:sonar'
+			} 
+		}
 	}
 }
