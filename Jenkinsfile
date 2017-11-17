@@ -6,7 +6,6 @@ pipeline{
                 pollSCM '* * * * *'
 	}
 	
-	
 	stages{
 		stage("Build archive"){
 			steps{
