@@ -1,5 +1,6 @@
 pipeline{
 	agent any
+	git "https://github.com/marcopu/app"
 	stages{
 		stage("Build archive"){
 			steps{
