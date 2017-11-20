@@ -23,7 +23,8 @@ pipeline{
 		stage("Unit test"){
 			steps{
 			//Transfer set
-			sh 'scp -r /var/lib/jenkins/jobs/DeclarativePipeline/workspace/** root@192.168.90.10:/home'
+			//sh 'scp -r /var/lib/jenkins/jobs/DeclarativePipeline/workspace/** root@192.168.90.10:/home'
+			sh 'scp -r ** root@192.168.90.10:/home'
 			sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
 		}
