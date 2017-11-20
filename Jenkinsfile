@@ -2,10 +2,10 @@ pipeline{
 	
 	agent any
 	
-	triggers {
+	/*triggers {
                 pollSCM '* * * * *'
 	}
-	
+	*/
 	stages{
 		stage("Build archive"){
 			steps{
@@ -29,6 +29,12 @@ pipeline{
 		stage("Code Analysis"){
 			steps{
 			 sh 'mvn sonar:sonar'
+			} 
+		}
+		
+		stage("Deploy"){
+			steps{
+			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/starttomcat.yml'
 			} 
 		}
 	}
