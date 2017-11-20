@@ -30,7 +30,7 @@ pipeline{
 		
 		stage("Code Analysis"){
 			steps{
-			scp ** root@192.168.90.10 /home
+			scp /var/lib/jobs/Declarative\Pipeline/workspace root@192.168.90.10 /home
 		        sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/analyzer.yml'
 			} 
 		}
