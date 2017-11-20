@@ -22,7 +22,10 @@ pipeline{
 		
 		stage("Unit test"){
 			steps{
-			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
+			step ([$class: 'CopyArtifact',
+          		projectName: 'lastSuccessfulBuild']);
+			
+			sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
 		}
 		
