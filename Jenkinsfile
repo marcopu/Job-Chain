@@ -37,5 +37,11 @@ pipeline{
 			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/starttomcat.yml'
 			} 
 		}
+		
+		stage("Functional test"){
+			steps{
+			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/functional.yml'
+			} 
+		}
 	}
 }
