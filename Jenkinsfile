@@ -2,10 +2,10 @@ pipeline{
 	
 	agent any
 	
-	/*triggers {
+	triggers {
                 pollSCM '* * * * *'
 	}
-	 */
+	 
 	stages{
 		stage("Build archive"){
 			steps{
