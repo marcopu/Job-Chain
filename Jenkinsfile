@@ -22,13 +22,16 @@ pipeline{
 		
 		stage("Unit test"){
 			steps{
+			//Transfer set
+			scp ** root@192.168.90.10 /home
 			sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
 		}
 		
 		stage("Code Analysis"){
 			steps{
-			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/analyzer.yml'
+			scp ** root@192.168.90.10 /home
+		        sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/analyzer.yml'
 			} 
 		}
 		
