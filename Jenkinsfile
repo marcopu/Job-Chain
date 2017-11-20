@@ -2,9 +2,9 @@ pipeline{
 	
 	agent any
 	
-	triggers {
+	/*triggers {
                 pollSCM '* * * * *'
-	}
+	}*/
 	 
 	stages{
 		stage("Build archive"){
@@ -13,12 +13,13 @@ pipeline{
 			 sh 'mvn compile -DskipTests'
 			 sh 'mvn package -DskipTests'
 			}
-			post {
+			
+			/*post {
    			 success {
       		            archive "**"
    			 }
-		        }
-		}
+		        }*/
+		 }
 		
 		stage("Unit test"){
 			steps{
@@ -27,25 +28,25 @@ pipeline{
 			sh 'scp -r ** root@192.168.90.10:/home'
 			sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
-		}
+		 }
 		
 		stage("Code Analysis"){
 			steps{
 		        sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/analyzer.yml'
 			} 
-		}
+		 }
 		
 		stage("Deploy"){
 			steps{
 			 sh 'scp -r target/*.war root@192.168.90.30:/opt/tomcat/webapps'
 			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/starttomcat.yml'
 			} 
-		}
+		 }
 		
 		stage("Functional test"){
 			steps{
 			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/functional.yml'
 			} 
-		}
+		 }
 	}
 }
