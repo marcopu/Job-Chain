@@ -23,14 +23,13 @@ pipeline{
 		stage("Unit test"){
 			steps{
 			//Transfer set
-			scp ** root@192.168.90.10:/home
+			scp /var/lib/jobs/Declarative\Pipeline/workspace root@192.168.90.10 /home
 			sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
 		}
 		
 		stage("Code Analysis"){
 			steps{
-			scp /var/lib/jobs/Declarative\Pipeline/workspace root@192.168.90.10 /home
 		        sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/analyzer.yml'
 			} 
 		}
