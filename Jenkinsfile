@@ -22,6 +22,7 @@ pipeline{
 		
 		stage("Unit test"){
 			steps{
+			 step([$class: 'CopyArtifact')]	
 			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
 		}
