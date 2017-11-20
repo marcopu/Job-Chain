@@ -17,7 +17,7 @@ pipeline{
    			 success {
       		            archive "**"
    			 }
-		        }
+		       }
 		}
 		
 		stage("Unit test"){
