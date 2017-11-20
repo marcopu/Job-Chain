@@ -22,13 +22,13 @@ pipeline{
 		
 		stage("Unit test"){
 			steps{
-			 sh 'mvn test'
+			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
 		}
 		
 		stage("Code Analysis"){
 			steps{
-			 sh 'mvn sonar:sonar'
+			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/analyzer.yml'
 			} 
 		}
 		
