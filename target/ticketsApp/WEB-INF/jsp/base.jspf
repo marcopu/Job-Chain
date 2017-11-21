@@ -1,3 +1,0 @@
-<%@ page import="com.wrox.Ticket" %>
-<%@ page import="com.wrox.Attachment" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
