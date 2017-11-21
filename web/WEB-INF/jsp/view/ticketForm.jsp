@@ -5,7 +5,7 @@
         <title>Creazione Ticket</title>
     </head>
     <body>
-        <h2>Crea il tuo Ticket</h2>
+        <h2>Crea il tuo Ticket, ti risponderemo al piu' presto</h2>
         <form method="POST" action="tickets" enctype="multipart/form-data">
             <input type="hidden" name="action" value="create"/>
             Owner<br/>
