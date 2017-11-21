@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.progetto</groupId>
-    <artifactId>application</artifactId>
+    <artifactId>app</artifactId>
     <version>NoLogin</version>
     <packaging>war</packaging>
 
