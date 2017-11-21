@@ -50,7 +50,7 @@ pipeline{
 			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/functional.yml'
 			}
 			
-			post{
+			/*post{
         		   always {
             			echo 'Deleting workspace. . .'
     				  deleteDir()
@@ -59,7 +59,7 @@ pipeline{
         		   success {
             			echo 'SUCCESS!'
         		       }
-			 }
+			 }*/
 		 }
 	}
 }
