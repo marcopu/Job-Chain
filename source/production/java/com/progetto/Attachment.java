@@ -1,4 +1,4 @@
-package com.wrox;
+package com.progetto;
 
 public class Attachment
 {

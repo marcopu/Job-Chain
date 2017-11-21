@@ -1,4 +1,4 @@
-package com.wrox;
+package com.progetto;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;

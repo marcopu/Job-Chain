@@ -1,8 +1,10 @@
-package com.wrox;
+package com.progetto;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.progetto.Attachment;
 
 public class AttachmentTest {
 
