@@ -53,7 +53,6 @@ pipeline{
 			post{
         		   always {
             			echo 'Deleting workspace. . .'
-            			dir('work*') {
     				  deleteDir()
 				   }
         		       }
