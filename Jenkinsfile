@@ -28,12 +28,14 @@ pipeline{
 			sh 'scp -r ** root@192.168.90.10:/home'
 			sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
+			
 		 }
 		
 		stage("Code Analysis"){
 			steps{
 		        sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/analyzer.yml'
-			} 
+			}
+			
 		 }
 		
 		stage("Deploy"){
@@ -46,7 +48,17 @@ pipeline{
 		stage("Functional test"){
 			steps{
 			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/functional.yml'
-			} 
+			}
+			
+			post{
+        		   always {
+            			echo 'Deleting workspace. . .'
+            			deleteDir() 
+        		       }
+        		   success {
+            			echo 'SUCCESS!'
+        		       }
+			 }
 		 }
 	}
 }
