@@ -55,7 +55,7 @@ pipeline{
             			echo 'Deleting workspace. . .'
     				  deleteDir()
 				   }
-        		       }
+    
         		   success {
             			echo 'SUCCESS!'
         		       }
