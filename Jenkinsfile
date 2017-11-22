@@ -59,7 +59,7 @@ pipeline{
 				   }
     
         		   success {
-            			echo 'SUCCESS!'
+            			echo 'GAME OVER!'
         		       }
 			 }
 		 }
