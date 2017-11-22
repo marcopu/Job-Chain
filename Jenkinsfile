@@ -48,6 +48,7 @@ pipeline{
 		
 		stage("Functional test"){
 			steps{
+			 sh 'scp -r ** root@192.168.90.40:/home'
 			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/functional.yml'
 			}
 			
