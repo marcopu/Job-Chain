@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.progetto</groupId>
-    <artifactId>application</artifactId>
+    <artifactId>app</artifactId>
     <version>NoLogin</version>
     <packaging>war</packaging>
 
@@ -67,7 +67,7 @@
     </dependencies>
 
     <build>
-        <finalName>application</finalName>
+        <finalName>app</finalName>
         <sourceDirectory>source/production/java</sourceDirectory>
         <resources>
             <resource>
