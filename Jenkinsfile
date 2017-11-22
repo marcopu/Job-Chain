@@ -41,7 +41,6 @@ pipeline{
 		stage("Deploy"){
 			steps{
 			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/starttomcat.yml'
-			 sh 'ssh root@192.168.90.30 rm -r /opt/tomcat/*.war'
 			 sh 'scp -r target/*.war root@192.168.90.30:/opt/tomcat/webapps'
 			} 
 		 }
