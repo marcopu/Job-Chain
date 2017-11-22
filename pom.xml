@@ -67,7 +67,7 @@
     </dependencies>
 
     <build>
-        <finalName>app</finalName>
+        <finalName>application</finalName>
         <sourceDirectory>source/production/java</sourceDirectory>
         <resources>
             <resource>
