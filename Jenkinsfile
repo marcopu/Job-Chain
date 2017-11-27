@@ -41,14 +41,14 @@ pipeline{
 		stage("Deploy"){
 			steps{
 			 sh 'ssh root@192.168.100.10 ansible-playbook /home/playbooks/starttomcat.yml'
-			 sh 'ssh root@192.168.100.30 rm -f /opt/tomcat/webapps/*.war'
-			 sh 'scp -r target/*.war root@192.168.100.30:/opt/tomcat/webapps'
+			 sh 'ssh vagrant@192.168.100.30 rm -f /opt/tomcat/webapps/*.war'
+			 sh 'scp -r target/*.war vagrant@192.168.100.30:/opt/tomcat/webapps'
 			} 
 		 }
 		
 		stage("Functional test"){
 			steps{
-			 sh 'scp -r ** root@192.168.100.40:/home'
+			 sh 'scp -r ** vagrant@192.168.100.40:/home'
 			 sh 'ssh root@192.168.100.10 ansible-playbook /home/playbooks/functional.yml'
 			}
 			
