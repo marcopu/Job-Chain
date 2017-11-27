@@ -25,31 +25,31 @@ pipeline{
 			steps{
 			//Transfer set
 			//sh 'scp -r /var/lib/jenkins/jobs/DeclarativePipeline/workspace/** root@192.168.90.10:/home'
-			sh 'scp -r ** root@192.168.90.10:/home'
-			sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/unit.yml'
+			sh 'scp -r ** root@192.168.100.10:/home'
+			sh 'ssh root@192.168.100.10 ansible-playbook /home/playbooks/unit.yml'
 			} 
 			
 		 }
 		
 		stage("Code Analysis"){
 			steps{
-		        sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/analyzer.yml'
+		        sh 'ssh root@192.168.100.10 ansible-playbook /home/playbooks/analyzer.yml'
 			}
 			
 		 }
 		
 		stage("Deploy"){
 			steps{
-			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/starttomcat.yml'
-			 sh 'ssh root@192.168.90.30 rm /opt/tomcat/webapps/*.war'
-			 sh 'scp -r target/*.war root@192.168.90.30:/opt/tomcat/webapps'
+			 sh 'ssh root@192.168.100.10 ansible-playbook /home/playbooks/starttomcat.yml'
+			 sh 'ssh root@192.168.100.30 rm /opt/tomcat/webapps/*.war'
+			 sh 'scp -r target/*.war root@192.168.100.30:/opt/tomcat/webapps'
 			} 
 		 }
 		
 		stage("Functional test"){
 			steps{
-			 sh 'scp -r ** root@192.168.90.40:/home'
-			 sh 'ssh root@192.168.90.10 ansible-playbook /home/playbooks/functional.yml'
+			 sh 'scp -r ** root@192.168.100.40:/home'
+			 sh 'ssh root@192.168.100.10 ansible-playbook /home/playbooks/functional.yml'
 			}
 			
 			post{
