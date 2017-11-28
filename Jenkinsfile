@@ -61,7 +61,7 @@ pipeline{
 				
     				 echo 'Cleaning. . .'
     				  sh 'ssh root@192.168.100.10 rm -r /pipeline'
-				  sh 'ssh root@192.168.100.40 rm -r /pipeline'*/
+				  sh 'ssh root@192.168.100.40 rm -r /pipeline'
 				   }
 			
         		   success {
