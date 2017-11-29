@@ -47,7 +47,17 @@ pipeline{
 			} 
 		 }
 		
-		stage("Functional test"){
+		
+		stage("Build functional test environment"){
+			steps{
+			 sh 'ssh root@192.168.100.50 mkdir /dockerfolder'
+			 sh 'scp Dockerfile root@192.168.100.50:/dockerfolder'
+			 sh 'scp -r target/*.war root@192.168.100.50:/dockerfolder'
+			 sh 'ssh root@192.168.100.10 ansible-playbook /pipeline/playbooks/dockerplay.yml'
+			} 
+		 }
+		
+		stage("Execute functional test"){
 			steps{
 			 sh 'ssh root@192.168.100.40 mkdir /pipeline'
 			 sh 'scp -r ** root@192.168.100.40:/pipeline'
