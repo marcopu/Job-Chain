@@ -73,7 +73,7 @@ pipeline{
 				  sh 'ssh root@192.168.100.10 ansible-playbook /pipeline/playbooks/dockerclean.yml'
     				  sh 'ssh root@192.168.100.10 rm -r /pipeline'
 				  sh 'ssh root@192.168.100.40 rm -r /pipeline'
-				  sh 'ssh root@192.168.100.50 rm -r /dockerfolder
+				  sh 'ssh root@192.168.100.50 rm -r /dockerfolder'
 				   }
 			
         		   success {
