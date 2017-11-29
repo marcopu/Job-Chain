@@ -14,4 +14,4 @@
       when: check_path.stat.exists == false
 
     - name: Starting Tomcat7
-      command: nohup /opt/tomcat/bin/startup.sh
+      command: nohup /opt/tomcat/bin/startup.sh &
