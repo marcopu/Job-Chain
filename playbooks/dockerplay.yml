@@ -5,40 +5,26 @@
   sudo: yes
   tasks:
 
-#    - name: Stop previously running containers
-#      shell: docker stop $(docker ps -a)
-
-#    - name: Remove previously containers
-#      shell: docker rm $(docker ps -a -q)
-
-
-#    - name: Remove previously images
-#      shell: docker rmi -f esempio tomcat localhost:5000/esempio registry
-
-
     - name: Build the image
-      shell: docker build -t esempio /new
+      shell: docker build -t app /dockerfolder
 
     - name: Run the local registry
       shell: docker run -d -p 5000:5000 --restart=always --name=registry registry:latest
 
     - name: Tag the image
-      shell: docker tag esempio localhost:5000/esempio
+      shell: docker tag app localhost:5000/app
 
     - name: Push the image
-      shell: docker push localhost:5000/esempio
+      shell: docker push localhost:5000/app
 
 
 - hosts: selenium
   remote_user: root
   sudo: yes
   tasks:
-
-#    - name: Remove previously images
-#      shell: docker rmi -f 192.168.100.50:5000/esempio
-
+  
     - name: Pull the image from the registry
-      shell: docker pull 192.168.100.50:5000/esempio
+      shell: docker pull 192.168.100.50:5000/docker
 
     - name: Running the test environment
-      shell: docker run -d -p 8080:8080 192.168.100.50:5000/esempio
+      shell: docker run -d -p 8080:8080 192.168.100.50:5000/app
