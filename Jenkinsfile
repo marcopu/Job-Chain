@@ -48,7 +48,7 @@ pipeline{
 		 }
 		
 		
-		stage("Build functional test environment"){
+		stage("Functional test: building environment"){
 			steps{
 			 sh 'ssh root@192.168.100.50 mkdir /dockerfolder'
 			 sh 'scp Dockerfile root@192.168.100.50:/dockerfolder'
@@ -57,7 +57,7 @@ pipeline{
 			} 
 		 }
 		
-		stage("Execute functional test"){
+		stage("Functional test: running test"){
 			steps{
 			 sh 'ssh root@192.168.100.40 mkdir /pipeline'
 			 sh 'scp -r ** root@192.168.100.40:/pipeline'
@@ -70,8 +70,10 @@ pipeline{
     				  deleteDir()
 				
     				 echo 'Cleaning. . .'
+				  sh 'ssh root@192.168.100.10 ansible-playbook /pipeline/playbooks/dockerclean.yml'
     				  sh 'ssh root@192.168.100.10 rm -r /pipeline'
 				  sh 'ssh root@192.168.100.40 rm -r /pipeline'
+				  sh 'ssh root@192.168.100.50 rm -r /dockerfolder
 				   }
 			
         		   success {
