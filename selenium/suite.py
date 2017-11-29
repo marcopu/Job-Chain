@@ -16,12 +16,12 @@ class MozillaTesting(unittest.TestCase):
 
     def test_openMozilla(page):
         driver = page.driver
-        driver.get("http://192.168.100.30:8080/app/tickets")
+        driver.get("http://192.168.100.40:8080/app/tickets")
         page.assertIn("Consoft", driver.title)
 
     def test_insertTicketMozilla(page):
         driver = page.driver
-        driver.get("http://192.168.100.30:8080/app/tickets")
+        driver.get("http://192.168.100.40:8080/app/tickets")
         inputElement = page.driver.find_element_by_link_text("Crea il tuo Ticket")
         inputElement.click()
 
@@ -39,12 +39,12 @@ class ChromeTesting(unittest.TestCase):
 
     def test_openChrome(page):
         driver = page.driver
-        driver.get("http://192.168.100.30:8080/app/tickets")
+        driver.get("http://192.168.100.40:8080/app/tickets")
         page.assertIn("Consoft", driver.title)
 
     def test_insertTicketChrome(page):
         driver = page.driver
-        driver.get("http://192.168.100.30:8080/app/tickets")
+        driver.get("http://192.168.100.40:8080/app/tickets")
         inputElement = page.driver.find_element_by_link_text("Crea il tuo Ticket")
         inputElement.click()
 
