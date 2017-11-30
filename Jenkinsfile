@@ -39,7 +39,7 @@ pipeline{
 			
 		 }
 		
-		stage("Deploy"){
+		stage("Development"){
 			steps{
 			 sh 'ssh root@192.168.100.10 ansible-playbook /pipeline/playbooks/starttomcat.yml'
 			 sh 'ssh root@192.168.100.30 rm -f /opt/tomcat/webapps/*.war'
