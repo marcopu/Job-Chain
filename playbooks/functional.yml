@@ -10,4 +10,4 @@
       
 
     - name: App deployed -> Testing on Mozilla and Chrome browsers
-      shell: python /pipeline/selenium/suite.py  >> /reports/"report_$(date +"%Y_%m_%d_%I_%M").html"
+      shell: python /home/selenium/suite.py  >> /reports/"report_$(date +"%Y_%m_%d_%I_%M").html"
