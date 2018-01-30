@@ -6,4 +6,4 @@
   tasks:
 
     - name: Unit Testing
-      shell: mvn test
+      shell: cd /home; mvn test
