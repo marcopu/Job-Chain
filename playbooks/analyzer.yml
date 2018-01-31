@@ -6,4 +6,4 @@
   tasks:
 
     - name: Code Analysis
-      shell: cd /home; mvn sonar:sonar
+      shell: cd /home/app; mvn sonar:sonar
