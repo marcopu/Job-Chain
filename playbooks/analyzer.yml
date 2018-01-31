@@ -5,5 +5,5 @@
   become: yes
   tasks:
 
-    - name: Sonar Analysis
+    - name: Code Analysis
       shell: cd /home; mvn sonar:sonar
