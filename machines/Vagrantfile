@@ -1,0 +1,62 @@
+# sintassi ruby
+
+Vagrant.configure("2") do |config|
+
+  config.vm.provision "shell", inline: "echo starting machine configuration"
+  
+  #Configurazione JenkinsVM; provisioning by shell mediante script jenkins.sh
+  config.vm.define "jenkins6" do |jenkins6|
+    jenkins6.vm.box_check_update = false
+    jenkins6.vm.box = "ubuntu/xenial64"
+    jenkins6.vm.network "forwarded_port", guest: 102, host: 1020
+    jenkins6.vm.network "private_network", ip: "192.168.90.20"
+	jenkins6.vm.provision "shell", path: "jenkins.sh"
+    jenkins6.vm.provider "virtualbox" do |vb2|
+	vb2.name = "Jenkins6"
+	vb2.memory = 2048
+    vb2.cpus = 2
+	end
+  end
+  
+  #Configurazione AnsibleVM; provisioning by shell mediante script ansible.sh
+  config.vm.define "ansible6" do |ansible6|
+    ansible6.vm.box_check_update = false
+    ansible6.vm.box = "ubuntu/xenial64"
+    ansible6.vm.network "forwarded_port", guest: 101, host: 1010
+    ansible6.vm.network "private_network", ip: "192.168.90.10"
+	ansible6.vm.provision "shell", path: "ansible.sh"
+    ansible6.vm.provider "virtualbox" do |vb1|
+	vb1.name = "Ansible6"
+	vb1.memory = 2048
+    vb1.cpus = 2
+	end
+  end
+  
+  #Configurazione DevelopmentVM; provisioning by shell mediante script lamp.sh
+  config.vm.define "dev6" do |dev6|
+    dev6.vm.box_check_update = false
+    dev6.vm.box = "ubuntu/xenial64"
+    dev6.vm.network "forwarded_port", guest: 103, host: 1030
+    dev6.vm.network "private_network", ip: "192.168.90.30"
+	dev6.vm.provision "shell", path: "lamp.sh"
+    dev6.vm.provider "virtualbox" do |vb3|
+	vb3.name = "Device6"
+	vb3.memory = 2048
+    vb3.cpus = 2
+	end
+  end
+  
+  #Configurazione TestingVM; provisioning by shell mediante script sonar.sh
+  config.vm.define "test6" do |test6|
+    test6.vm.box_check_update = false
+    test6.vm.box = "ubuntu/xenial64"
+    test6.vm.network "forwarded_port", guest: 104, host: 1040
+    test6.vm.network "private_network", ip: "192.168.90.40"
+	test6.vm.provision "shell", path: "sonar.sh"
+    test6.vm.provider "virtualbox" do |vb4|
+	vb4.name = "Test6"
+	vb4.memory =4096
+    vb4.cpus = 2
+	end
+  end
+end
