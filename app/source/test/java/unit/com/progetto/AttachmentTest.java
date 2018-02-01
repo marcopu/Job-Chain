@@ -11,7 +11,7 @@ public class AttachmentTest {
 	@Test
 	public void test3() {
 		Attachment instance = new Attachment();
-		String name = "One";
+		String name = "Allegato";
 		instance.setName(name);
 		assertEquals(instance.getName(), name);
 	}
